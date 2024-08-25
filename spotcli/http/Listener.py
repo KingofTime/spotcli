@@ -20,7 +20,8 @@ class Listener(object):
         try:
             asyncio.run(self.server.serve())
         except RuntimeError:
-            ...
+            pass
+
 
     def __str__(self):
         return f"HTTP Listener - Port {self.port}"

@@ -17,5 +17,4 @@ class AuthService:
         )
 
         authorization_url, state = oauth.authorization_url(url)
-
-        print(authorization_url)
+        print(f"Authorization URL: {authorization_url}")

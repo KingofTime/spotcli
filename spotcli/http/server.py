@@ -1,7 +1,7 @@
-import sys
-import signal
+import json
+import os
+from dotenv import load_dotenv
 import urllib.parse
-
 import asyncio
 
 
@@ -13,6 +13,11 @@ async def app(scope, receive, send):
         code = query_string.get('code', None)
 
         if code:
+            setting_path = os.getenv("SETTINGS_PATH")
+
+            with open(f'{setting_path}/config.json', 'w') as file:
+                json.dump({"code": code[0]}, file)
+
             await send({
                 'type': 'http.response.start',
                 'status': 200,
