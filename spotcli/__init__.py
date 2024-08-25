@@ -1,0 +1,1 @@
+from spotcli.App import App
